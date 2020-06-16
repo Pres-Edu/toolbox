@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>PresEdu Toolbox</title>
+    <link rel="icon" href="icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=0.8, maximum-scale=1.0"/>
+</head>
+<body onload="under_flash();">
+    <style type="text/css">
+        @font-face {
+            font-family: "jb";
+            src: url(JetBrainsMono-Regular.ttf);
+        }
+        @font-face {
+            font-family: "noto_light_custom";
+            src: url(NotoSansCJKsc-Light.otf) format("opentype");
+        }
+        h1#big_title {
+            font-family: "jb";
+            font-size: 72px;
+        }
+        p#small_title {
+            font-family: "noto_light_custom";
+            font-size: 38px;
+        }
+    </style>
+    <script>
+        function under_flash() {
+            setInterval("under_process()", 500);
+        }
+        function under_process() {
+            with (document) {
+                current_big_title = getElementById("big_title").innerHTML;
+                if (current_big_title == "PresEdu Toolbox ") {
+                    getElementById("big_title").innerHTML = "PresEdu Toolbox_";
+                } else {
+                    getElementById("big_title").innerHTML = "PresEdu Toolbox ";
+                }
+            }
+        }
+    </script>
+    <div align="center">
+        <img src="icon.svg" height="256" width="256">
+        <pre><h1 id="big_title" onload="under_flash()">PresEdu Toolbox </h1></pre>
+        <p id="small_title">在这里获取适合你的工具</p>
+    </div>
+</body>
+</html>
