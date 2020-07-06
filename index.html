@@ -31,17 +31,17 @@
         function under_process() {
             with (document) {
                 current_big_title = getElementById("under_animation").innerHTML;
-                if (current_big_title == "x ") {
-                    getElementById("under_animation").innerHTML = "x_";
+                if (current_big_title == " ") {
+                    getElementById("under_animation").innerHTML = "_";
                 } else {
-                    getElementById("under_animation").innerHTML = "x ";
+                    getElementById("under_animation").innerHTML = " ";
                 }
             }
         }
     </script>
     <div align="center">
         <img src="icon.svg" height="256" width="256">
-        <h1 id="big_title" onload="under_flash()">PresEdu Toolbo<pre style="display: inline;" id="under_animation">x </pre></h1>
+        <h1 id="big_title" onload="under_flash()">PresEdu Toolbox<pre style="display: inline;" id="under_animation"> </pre></h1>
         <p id="small_title">在这里获取适合你的工具</p>
     </div>
 </body>
