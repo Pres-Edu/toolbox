@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=0.8, maximum-scale=1.0"/>
     <link href="59167915-10B1-4B0F-B518-BD285C30B510.png" rel="icon">
     <title>课堂专用抽学号</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 <body onload="auto_theme();">
 <style type="text/css">
@@ -20,6 +21,9 @@
     body.light {
         background-color: white;
         transition: background 500ms;
+    }
+    button:hover {
+        cursor: pointer;
     }
     p.main_style {
         font-weight: bold;
@@ -105,6 +109,7 @@
         transition: 200ms;
     }
     button.button_second_clicked_style {
+        cursor: not-allowed;
         border-radius: 30px;
         border: 2px solid gray;
         padding: 13px 30px;
@@ -129,6 +134,9 @@
         color: black;
         font-size: 18px;
         font-display: block;
+        position: fixed;
+        top: 10px;
+        right: 10px;
         transition: 200ms;
     }
     button.change_theme_style:hover {
@@ -146,6 +154,9 @@
         color: white;
         font-size: 18px;
         font-display: block;
+        position: fixed;
+        top: 10px;
+        right: 10px;
         transition: 200ms;
     }
     button.change_theme_dark_style:hover {
@@ -173,6 +184,7 @@
         font-display: block;
     }
     button.button_clicked_style {
+        cursor: not-allowed;
         border-radius: 30px;
         border: 0px;
         padding: 15px 32px;
@@ -197,7 +209,7 @@
         border: 0px;
         padding: 4px 6px;
         text-align: center;
-        background-color: green;
+        background-color: red;
         color: white;
         font-size: 10px;
         font-display: block;
@@ -235,7 +247,7 @@
     <input type="checkbox" id="historycheck" title="如果要抽取多个学号，请勾选此选项"><span class="centerize" id="history_prompt">保留历史记录</span>
     <input type="checkbox" id="repeatcheck" checked="checked"><span class="centerize" id="repeat_prompt">自动去重</span><br><br>
     <hr>
-    <button class="ver_style" onclick="ver_hint()" title="这是什么？">v1.5.15</button>
+    <button class="ver_style" onclick="ver_hint()" title="这是什么？">v1.6.0dev</button>
     <img src='https://travis-ci.com/bizwofficial/cxh.svg?branch=master' />
     <img src='https://gitee.com/bizwofficial/cxh/badge/star.svg?theme=dark' alt='star'></img><br><br>
     <a href="https://github.com/bizwofficial/cxh/archive/master.zip" download="download" class="download_style">点击此处下载离线版本</a>
@@ -255,46 +267,46 @@
         }
     }
     function dark() {
-        document.body.setAttribute("class", "dark");
-        document.getElementById("main_title").setAttribute("class", "centerize_dark");
-        document.getElementById("follow_button").setAttribute("class", "follow_dark_style");
-        document.getElementById("num").setAttribute("class", "main_dark_style");
-        document.getElementById("qt").setAttribute("class", "quote_dark_style");
-        document.getElementById("history").setAttribute("class", "history_dark_style");
-        document.getElementById("st_prompt").setAttribute("class", "centerize_dark");
-        document.getElementById("ed_prompt").setAttribute("class", "centerize_dark");
-        document.getElementById("edge_prompt").setAttribute("class", "edge_dark");
-        document.getElementById("history_prompt").setAttribute("class", "centerize_dark");
-        document.getElementById("repeat_prompt").setAttribute("class", "centerize_dark");
-        document.getElementById("issues_prompt").setAttribute("class", "centerize_dark");
-        document.getElementById("donate_prompt").setAttribute("class", "centerize_dark");
-        document.getElementById("issues_link").setAttribute("class", "centerize_dark");
+        $("body").attr("class", "dark");
+        $("#main_title").attr("class", "centerize_dark");
+        $("#follow_button").attr("class", "follow_dark_style");
+        $("#num").attr("class", "main_dark_style");
+        $("#qt").attr("class", "quote_dark_style");
+        $("#history").attr("class", "history_dark_style");
+        $("#st_prompt").attr("class", "centerize_dark");
+        $("#ed_prompt").attr("class", "centerize_dark");
+        $("#edge_prompt").attr("class", "edge_dark");
+        $("#history_prompt").attr("class", "centerize_dark");
+        $("#repeat_prompt").attr("class", "centerize_dark");
+        $("#issues_prompt").attr("class", "centerize_dark");
+        $("#donate_prompt").attr("class", "centerize_dark");
+        $("#issues_link").attr("class", "centerize_dark");
         //document.getElementById("change_style_button").innerHTML = "日间模式";
-        document.getElementById("change_style_button").setAttribute("onclick", "light()");
-        document.getElementById("change_style_button").setAttribute("class", "change_theme_dark_style");
+        $("#change_style_button").attr("onclick", "light()");
+        $("#change_style_button").attr("class", "change_theme_dark_style");
     }
     function light() {
-        document.body.setAttribute("class", "light");
-        document.getElementById("main_title").setAttribute("class", "centerize");
-        document.getElementById("follow_button").setAttribute("class", "follow_style");
-        document.getElementById("history").setAttribute("class", "history_style");
-        document.getElementById("qt").setAttribute("class", "quote_style");
-        document.getElementById("num").setAttribute("class", "main_style");
-        document.getElementById("st_prompt").setAttribute("class", "centerize");
-        document.getElementById("ed_prompt").setAttribute("class", "centerize");
-        document.getElementById("edge_prompt").setAttribute("class", "edge");
-        document.getElementById("history_prompt").setAttribute("class", "centerize");
-        document.getElementById("repeat_prompt").setAttribute("class", "centerize");
-        document.getElementById("issues_prompt").setAttribute("class", "centerize");
-        document.getElementById("donate_prompt").setAttribute("class", "centerize");
-        document.getElementById("issues_link").setAttribute("class", "centerize");
+        $("body").attr("class", "light");
+        $("#main_title").attr("class", "centerize");
+        $("#follow_button").attr("class", "follow_style");
+        $("#history").attr("class", "history_style");
+        $("#qt").attr("class", "quote_style");
+        $("#num").attr("class", "main_style");
+        $("#st_prompt").attr("class", "centerize");
+        $("#ed_prompt").attr("class", "centerize");
+        $("#edge_prompt").attr("class", "edge");
+        $("#history_prompt").attr("class", "centerize");
+        $("#repeat_prompt").attr("class", "centerize");
+        $("#issues_prompt").attr("class", "centerize");
+        $("#donate_prompt").attr("class", "centerize");
+        $("#issues_link").attr("class", "centerize");
         //document.getElementById("change_style_button").innerHTML = "夜间模式";
-        document.getElementById("change_style_button").setAttribute("onclick", "dark()");
-        document.getElementById("change_style_button").setAttribute("class", "change_theme_style");
+        $("#change_style_button").attr("onclick", "dark()");
+        $("#change_style_button").attr("class", "change_theme_style");
     }
     function manual_start() {
-        let st=parseInt(document.getElementById("st").value);
-        let ed=parseInt(document.getElementById("ed").value);
+        let st=parseInt($("#st").val());
+        let ed=parseInt($("#ed").val());
         if (isNaN(st) || isNaN(ed)) {
             alert("学号起码是数字啊");
             return;
@@ -308,24 +320,25 @@
             return;
         }
         ps=setInterval("make_random("+st+","+ed+")", 5);
-        document.getElementById("manual_but").onclick=manual_stop;
-        document.getElementById("manual_but").innerHTML="手动停止";
-        document.getElementById("but").setAttribute("class", "button_clicked_style");
-        document.getElementById("but").disabled=true;
-        document.getElementById("num").removeAttribute("onclick");
+        $("#manual_but").onclick=manual_stop;
+        $("#manual_but").html("手动停止");
+        $("#but").attr("class", "button_clicked_style");
+        $("#but").disabled=true;
+        $("#num").removeAttr("onclick");
     }
     function manual_stop() {
+        alert('h');
         clearInterval(ps);
         history_process();
-        document.getElementById("manual_but").onclick=manual_start;
-        document.getElementById("manual_but").innerHTML="手动开始";
-        document.getElementById("but").setAttribute("class", "button_style");
-        document.getElementById("but").disabled=false;
-        document.getElementById("num").setAttribute("onclick", "make()");
+        $("#manual_but").onclick=manual_start;
+        $("#manual_but").html("手动开始");
+        $("#but").attr("class", "button_style");
+        $("#but").disabled=false;
+        $("#num").attr("onclick", "make()");
     }
     function make() {
-        let st=parseInt(document.getElementById("st").value);
-        let ed=parseInt(document.getElementById("ed").value);
+        let st=parseInt($("#st").val());
+        let ed=parseInt($("#ed").val());
         if (isNaN(st) || isNaN(ed)) {
             alert("学号起码是数字啊");
             return;
@@ -338,21 +351,32 @@
             alert("上面那个空填起始学号，下面填终止学号~");
             return;
         }
-        document.getElementById("but").innerHTML = "正在抽取...";
-        document.getElementById("but").setAttribute("class", "button_clicked_style");
-        document.getElementById("but").disabled = true;
-        document.getElementById("num").removeAttribute("onclick");
-        document.getElementById("manual_but").setAttribute("class", "button_second_clicked_style");
-        document.getElementById("manual_but").disabled=true;
-        for(let i = 1; i < 20000; i++) {
+        $("#but").html("正在抽取...");
+        $("#but").attr("class", "button_clicked_style");
+        $("#but").disabled = true;
+        $("#num").removeAttr("onclick");
+        $("#manual_but").attr("class", "button_second_clicked_style");
+        $("#manual_but").disabled=true;
+        /*for(let i = 1; i < 20000; i++) {
             setTimeout("make_random("+st+","+ed+")", 100);
-        }
-        setTimeout('document.getElementById("but").innerHTML = "再来一次";', 1000);
-        setTimeout('document.getElementById("but").setAttribute("class", "button_style");', 1000);
-        setTimeout('document.getElementById("but").disabled=false;', 1000);
-        setTimeout('document.getElementById("num").setAttribute("onclick", "make()");', 1000);
-        setTimeout('document.getElementById("manual_but").setAttribute("class", "button_second_style");', 1000);
-        setTimeout('document.getElementById("manual_but").disabled=false;', 1000);
+        }*/
+        let times = 0;
+        let waiter = setInterval(function(strt, endd){
+            $("#num").html(Math.floor(Math.random()*(endd-strt+1)+strt).toString());
+            //alert(endd);
+            if (times >= 200) {
+                clearInterval(waiter);
+            } else {
+                times++;
+            }
+            return;
+        }, 5, st, ed);
+        setTimeout('$("#but").html("再来一次");', 1000);
+        setTimeout('$("#but").attr("class", "button_style");', 1000);
+        setTimeout('$("#but").disabled=false;', 1000);
+        setTimeout('$("#num").attr("onclick", "make()");', 1000);
+        setTimeout('$("#manual_but").attr("class", "button_second_style");', 1000);
+        setTimeout('$("#manual_but").disabled=false;', 1000);
         setTimeout('history_process()', 1500);
     }
     function ver_hint(){
@@ -361,21 +385,21 @@
         }
     }
     function history_process() {
-        let if_history=document.getElementById("historycheck").checked;
-        let if_repeat=document.getElementById("repeatcheck").checked;
-        let history_string=document.getElementById("history").innerHTML;
-        let current_content=document.getElementById("num").innerHTML;
+        let if_history=$("#historycheck").checked;
+        let if_repeat=$("#repeatcheck").checked;
+        let history_string=$("#history").html();
+        let current_content=$("#num").html();
         if (if_history==true) {
             if(if_repeat) {
                 if(history_string.indexOf(" "+current_content+" ") != -1) {
                     return;
                 }
             }
-            document.getElementById("history").innerHTML=history_string+current_content+" ";
+            $("#history").html(history_string+current_content+" ");
         }
     }
-    function make_random(strt,endd) {
-        document.getElementById("num").innerHTML = Math.floor(Math.random()*(endd-strt+1)+strt).toString();
+    function make_random(strt, endd) {
+        $("#num").html(Math.floor(Math.random()*(endd-strt+1)+strt).toString());
     }
 </script>
 </body>
