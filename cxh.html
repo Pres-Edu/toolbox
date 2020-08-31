@@ -410,7 +410,7 @@
         } else {
             light();
         }
-        $("#st").addEventListener("keydown", function(){
+        $("#st").bind("keydown", function(){
             let st=parseInt($("#st").val());
             let ed=parseInt($("#ed").val());
             if(st<0 || isNaN(st)) {
@@ -419,7 +419,7 @@
                 $("#st_inc").attr("hidden", true);
             }
         });
-        $("#ed").addEventListener("keydown", function(){
+        $("#ed").bind("keydown", function(){
             let st=parseInt($("#st").val());
             let ed=parseInt($("#ed").val());
             if(st>ed || ed<0 || isNaN(ed)) {
