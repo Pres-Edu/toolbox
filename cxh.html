@@ -22,6 +22,12 @@
     button:hover {
         cursor: pointer;
     }
+    h1#main_title {
+        position: fixed;
+        top: 5px;
+        left: 5px;
+        display: inline;
+    }
     p.main_style {
         cursor: pointer;
         font-weight: bold;
@@ -133,6 +139,7 @@
         position: fixed;
         top: 10px;
         right: 10px;
+        display: inline;
         transition: 200ms;
     }
     button.change_theme_style:hover {
@@ -153,6 +160,7 @@
         position: fixed;
         top: 10px;
         right: 10px;
+        display: inline;
         transition: 200ms;
     }
     button.change_theme_dark_style:hover {
@@ -248,7 +256,7 @@
     <img src='https://gitee.com/bizwofficial/cxh/badge/star.svg?theme=dark' alt='star'></img><br><br>
     <a href="https://github.com/bizwofficial/cxh/archive/master.zip" download="download" class="download_style">点击此处下载离线版本</a>
     <p class="centerize" id="issues_prompt">您是一位老师？请到<a href="https://github.com/bizwofficial/cxh/issues" id="issues_link">本项目主页</a>提交您的需求。</p>
-    <p class="centerize" id="donate_prompt">希望捐赠并为本项目提供资金支持？我们不需要捐赠。</p>
+    <p class="centerize" id="donate_prompt" hidden>希望捐赠并为本项目提供资金支持？我们不需要捐赠。</p>
 </div>
 <script>
     function dark() {
