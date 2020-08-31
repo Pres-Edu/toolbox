@@ -360,11 +360,12 @@
             //alert(endd);
             if (times >= 200) {
                 clearInterval(waiter);
+                history_process();
             } else {
                 times++;
             }
             return;
-        }, 5, st, ed).then(function(){
+        }, 5, st, ed);
         //setTimeout('clearInterval(waiter);', 1000);
         setTimeout('$("#but").html("再来一次");', 1000);
         setTimeout('$("#but").attr("class", "button_style");', 1000);
@@ -372,8 +373,7 @@
         setTimeout('$("#num").attr("onclick", "make()");', 1000);
         setTimeout('$("#manual_but").attr("class", "button_second_style");', 1000);
         setTimeout('$("#manual_but").attr("disabled", false);', 1000);
-        setTimeout('history_process()', 1500);
-        });
+        //setTimeout('history_process();', 1500);
     }
     function ver_hint(){
         if (confirm("绿色表示稳定版本\n黑色表示测试版本\n红色表示调试版本\n\n点击“确定”前往Releases页")) {
