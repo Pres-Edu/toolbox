@@ -347,10 +347,10 @@
         }
         $("#but").html("正在抽取...");
         $("#but").attr("class", "button_clicked_style");
-        $("#but").disabled = true;
+        $("#but").attr("disabled", true);
         $("#num").removeAttr("onclick");
         $("#manual_but").attr("class", "button_second_clicked_style");
-        $("#manual_but").disabled=true;
+        $("#manual_but").attr("disabled", true);
         /*for(let i = 1; i < 20000; i++) {
             setTimeout("make_random("+st+","+ed+")", 100);
         }*/
@@ -379,12 +379,12 @@
         }
     }
     function history_process() {
-        let if_history=$("#historycheck").checked;
-        let if_repeat=$("#repeatcheck").checked;
+        let if_history=$("#historycheck").attr("checked");
+        let if_repeat=$("#repeatcheck").attr("checked");
         let history_string=$("#history").html();
         let current_content=$("#num").html();
-        if (if_history==true) {
-            if(if_repeat) {
+        if (if_history=="checked") {
+            if(if_repeat=="checked") {
                 if(history_string.indexOf(" "+current_content+" ") != -1) {
                     return;
                 }
