@@ -410,7 +410,7 @@
         } else {
             light();
         }
-        $("#st_prompt").addEventListener("keydown", function(){
+        $("#st").addEventListener("keydown", function(){
             let st=parseInt($("#st").val());
             let ed=parseInt($("#ed").val());
             if(st<0 || isNaN(st)) {
@@ -419,7 +419,7 @@
                 $("#st_inc").attr("hidden", true);
             }
         });
-        $("#ed_prompt").addEventListener("keydown", function(){
+        $("#ed").addEventListener("keydown", function(){
             let st=parseInt($("#st").val());
             let ed=parseInt($("#ed").val());
             if(st>ed || ed<0 || isNaN(ed)) {
