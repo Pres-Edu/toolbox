@@ -365,6 +365,7 @@
             }
             return;
         }, 5, st, ed);
+        setTimeout('clearInterval(waiter);', 1000);
         setTimeout('$("#but").html("再来一次");', 1000);
         setTimeout('$("#but").attr("class", "button_style");', 1000);
         setTimeout('$("#but").attr("disabled", false);', 1000);
