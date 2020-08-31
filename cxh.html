@@ -379,12 +379,12 @@
         }
     }
     function history_process() {
-        let if_history=$("#historycheck").attr("checked");
-        let if_repeat=$("#repeatcheck").attr("checked");
+        let if_history=$("#historycheck").prop("checked");
+        let if_repeat=$("#repeatcheck").prop("checked");
         let history_string=$("#history").html();
         let current_content=$("#num").html();
-        if (if_history=="checked") {
-            if(if_repeat=="checked") {
+        if (if_history) {
+            if(if_repeat) {
                 if(history_string.indexOf(" "+current_content+" ") != -1) {
                     return;
                 }
