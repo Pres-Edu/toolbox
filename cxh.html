@@ -9,7 +9,7 @@
     <title>课堂专用抽学号</title>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.min.js"></script>
 </head>
-<body onload="auto_theme();">
+<body onload="auto_theme();" class="dark">
 <style type="text/css">
     body.dark {
         background-color: black;
@@ -213,7 +213,7 @@
         border: 0px;
         padding: 4px 6px;
         text-align: center;
-        background-color: red;
+        background-color: black;
         color: white;
         font-size: 10px;
         font-display: block;
@@ -230,33 +230,33 @@
     }
 </style>
 <div style="text-align: right;">
-    <button class="change_theme_style" onclick="dark()" id="change_style_button"></button><br>
+    <button class="change_theme_dark_style" onclick="light()" id="change_style_button"></button><br>
 </div>
 <div style="text-align: center;">
-    <h1 class="centerize" id="main_title">课堂抽学号系统</h1><br><br><br><br>
-    <a href="https://github.com/bizwofficial" target="_blank" class="follow_style" id="follow_button">在GitHub上follow裨治文总统</a><br>
-    <p class="main_style" id="num" onclick="make();" title="点击数字也可以抽取">0</p><br>
-    <p class="history_style" id="history"> </p><br>
+    <h1 class="centerize_dark" id="main_title">课堂抽学号系统</h1><br><br><br><br>
+    <a href="https://github.com/bizwofficial" target="_blank" class="follow_dark_style" id="follow_button">在GitHub上follow裨治文总统</a><br>
+    <p class="main_dark_style" id="num" onclick="make();" title="点击数字也可以抽取">0</p><br>
+    <p class="history_dark_style" id="history"> </p><br>
     <fieldset style="width: 70vw; margin: 0 auto; float: none;">
-        <legend class="edge" align="center" id="edge_prompt">学号范围</legend>
-        <span class="centerize" id="st_prompt">起始学号：</span><input type="number" name="起始学号" value=1 id="st"><img src="incorrect.svg" hidden style="vertical-align:middle;width:20px;height:20px;" id="st_inc"></img><br>
-        <span class="centerize" id="ed_prompt">终止学号：</span><input type="number" name="终止学号" value=48 id="ed"><img src="incorrect.svg" hidden style="vertical-align:middle;width:20px;height:20px;" id="ed_inc"></img><br><br>
+        <legend class="edge_dark" align="center" id="edge_prompt">学号范围</legend>
+        <span class="centerize_dark" id="st_prompt">起始学号：</span><input type="number" name="起始学号" value=1 id="st"><img src="incorrect.svg" hidden style="vertical-align:middle;width:20px;height:20px;" id="st_inc"></img><br>
+        <span class="centerize_dark" id="ed_prompt">终止学号：</span><input type="number" name="终止学号" value=48 id="ed"><img src="incorrect.svg" hidden style="vertical-align:middle;width:20px;height:20px;" id="ed_inc"></img><br><br>
     </fieldset>
     <button onclick="manual_start()" id="manual_but" class="button_second_style">手动开始</button>
     <button onclick="make()" id="but" class="button_style">一键抽取</button><br>
-    <blockquote class="quote_style" hidden id="qt">
+    <blockquote class="quote_dark_style" hidden id="qt">
         Tips: 点击大数字也可以抽取~<br>
         PS: 一键抽取按钮在部分移动设备上无法正常工作。如果您遇到了这个问题，可以在电脑上使用或者使用手动模式。
     </blockquote>
-    <input type="checkbox" id="historycheck" title="如果要抽取多个学号，请勾选此选项"><span class="centerize" id="history_prompt">保留历史记录</span>
-    <input type="checkbox" id="repeatcheck" checked="checked"><span class="centerize" id="repeat_prompt">自动去重</span><br><br>
+    <input type="checkbox" id="historycheck" title="如果要抽取多个学号，请勾选此选项"><span class="centerize_dark" id="history_prompt">保留历史记录</span>
+    <input type="checkbox" id="repeatcheck" checked="checked"><span class="centerize_dark" id="repeat_prompt">自动去重</span><br><br>
     <hr>
-    <button class="ver_style" onclick="ver_hint()" title="这是什么？">v1.6.0dev</button>
+    <button class="ver_style" onclick="ver_hint()" title="这是什么？">v1.6.0beta1</button>
     <img src='https://travis-ci.com/bizwofficial/cxh.svg?branch=master' />
     <img src='https://gitee.com/bizwofficial/cxh/badge/star.svg?theme=dark' alt='star'></img><br><br>
-    <a href="https://github.com/bizwofficial/cxh/archive/master.zip" download="download" class="download_style">点击此处下载离线版本</a>
-    <p class="centerize" id="issues_prompt">您是一位老师？请到<a href="https://github.com/bizwofficial/cxh/issues" id="issues_link">本项目主页</a>提交您的需求。</p>
-    <p class="centerize" id="donate_prompt" hidden>希望捐赠并为本项目提供资金支持？我们不需要捐赠。</p>
+    <a href="https://github.com/Pres-Edu/toolbox/blob/master/README.md" class="download_style" target="_blank">点击此处阅读使用文档</a>
+    <p class="centerize_dark" id="issues_prompt">您是一位老师？请到<a href="https://github.com/bizwofficial/cxh/issues" id="issues_link">本项目主页</a>提交您的需求。</p>
+    <p class="centerize_dark" id="donate_prompt" hidden>希望捐赠并为本项目提供资金支持？我们不需要捐赠。</p>
 </div>
 <script>
     function dark() {
@@ -297,6 +297,11 @@
         $("#change_style_button").attr("onclick", "dark()");
         $("#change_style_button").attr("class", "change_theme_style");
     }
+    function listen_enter(event) {
+        if(event.keyCode === 13) {
+            make();
+        }
+    }
     function manual_start() {
         let st=parseInt($("#st").val());
         let ed=parseInt($("#ed").val());
@@ -317,7 +322,12 @@
         $("#manual_but").html("手动停止");
         $("#but").attr("class", "button_clicked_style");
         $("#but").attr("disabled",true);
+        $("#st").attr("disabled", true);
+        $("#ed").attr("disabled", true);
+        $("#historycheck").attr("disabled", true);
+        $("#repeatcheck").attr("disabled", true);
         $("#num").removeAttr("onclick");
+        window.removeEventListener("keyup", listen_enter);
         //alert('finished');
     }
     function manual_stop() {
@@ -328,7 +338,12 @@
         $("#manual_but").html("手动开始");
         $("#but").attr("class", "button_style");
         $("#but").attr("disabled",false);
+        $("#st").attr("disabled", false);
+        $("#ed").attr("disabled", false);
+        $("#historycheck").attr("disabled", false);
+        $("#repeatcheck").attr("disabled", false);
         $("#num").attr("onclick", "make();");
+        window.addEventListener("keyup", listen_enter);
     }
     function make() {
         let st=parseInt($("#st").val());
@@ -348,9 +363,14 @@
         $("#but").html("正在抽取...");
         $("#but").attr("class", "button_clicked_style");
         $("#but").attr("disabled", true);
+        $("#st").attr("disabled", true);
+        $("#ed").attr("disabled", true);
+        $("#historycheck").attr("disabled", true);
+        $("#repeatcheck").attr("disabled", true);
         $("#num").removeAttr("onclick");
         $("#manual_but").attr("class", "button_second_clicked_style");
         $("#manual_but").attr("disabled", true);
+        window.removeEventListener("keyup", listen_enter);
         /*for(let i = 1; i < 20000; i++) {
             setTimeout("make_random("+st+","+ed+")", 100);
         }*/
@@ -366,6 +386,11 @@
                 $("#num").attr("onclick", "make()");
                 $("#manual_but").attr("class", "button_second_style");
                 $("#manual_but").attr("disabled", false);
+                $("#st").attr("disabled", false);
+                $("#ed").attr("disabled", false);
+                $("#historycheck").attr("disabled", false);
+                $("#repeatcheck").attr("disabled", false);
+                window.addEventListener("keyup", listen_enter);
                 history_process();
             } else {
                 times++;
@@ -405,11 +430,7 @@
     }
     function auto_theme() {
         window.location.hash = "#main_title";
-        window.addEventListener("keyup", function(event) {
-            if(event.keyCode === 13) {
-                make();
-            }
-        });
+        window.addEventListener("keyup", listen_enter);
         let date=new Date();
         let newdate=date.toLocaleString('chinese', { hour12: false });
         let hour=parseInt(newdate.substr(newdate.indexOf(" ")+1, 2));
