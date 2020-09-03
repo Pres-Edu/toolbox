@@ -251,7 +251,7 @@
     <input type="checkbox" id="historycheck" title="如果要抽取多个学号，请勾选此选项"><span class="centerize_dark" id="history_prompt">保留历史记录</span>
     <input type="checkbox" id="repeatcheck" checked="checked"><span class="centerize_dark" id="repeat_prompt">自动去重</span><br><br>
     <hr>
-    <button class="ver_style" onclick="ver_hint()" title="这是什么？">v1.6.0b1_hotfix</button>
+    <button class="ver_style" onclick="ver_hint()" title="这是什么？">v1.6.0b2</button>
     <img src='https://travis-ci.com/bizwofficial/cxh.svg?branch=master' />
     <img src='https://gitee.com/bizwofficial/cxh/badge/star.svg?theme=dark' alt='star'></img><br><br>
     <a href="https://github.com/Pres-Edu/toolbox/blob/master/README.md" class="download_style" target="_blank">点击此处阅读使用文档</a>
@@ -297,11 +297,6 @@
         $("#change_style_button").attr("onclick", "dark()");
         $("#change_style_button").attr("class", "change_theme_style");
     }
-    function listen_enter(event) {
-        if(event.keyCode === 13) {
-            make();
-        }
-    }
     function manual_start() {
         let st=parseInt($("#st").val());
         let ed=parseInt($("#ed").val());
@@ -317,7 +312,7 @@
             alert("上面那个空填起始学号，下面填终止学号~");
             return;
         }
-        window.removeEventListener("keyup", listen_enter);
+        globalThis.free = false;
         $("#manual_but").attr("onclick","manual_stop();");
         $("#manual_but").html("手动停止");
         $("#but").attr("class", "button_clicked_style");
@@ -343,7 +338,6 @@
         $("#historycheck").attr("disabled", false);
         $("#repeatcheck").attr("disabled", false);
         $("#num").attr("onclick", "make();");
-        window.addEventListener("keyup", listen_enter);
     }
     function make() {
         let st=parseInt($("#st").val());
@@ -370,7 +364,6 @@
         $("#num").removeAttr("onclick");
         $("#manual_but").attr("class", "button_second_clicked_style");
         $("#manual_but").attr("disabled", true);
-        window.removeEventListener("keyup", listen_enter);
         /*for(let i = 1; i < 20000; i++) {
             setTimeout("make_random("+st+","+ed+")", 100);
         }*/
@@ -390,7 +383,6 @@
                 $("#ed").attr("disabled", false);
                 $("#historycheck").attr("disabled", false);
                 $("#repeatcheck").attr("disabled", false);
-                window.addEventListener("keyup", listen_enter);
                 history_process();
             } else {
                 times++;
@@ -429,8 +421,12 @@
         $("#num").html(Math.floor(Math.random()*(endd-strt+1)+strt).toString());
     }
     function auto_theme() {
-        window.location.hash = "#main_title";
-        window.addEventListener("keyup", listen_enter);
+        if (location.search.startsWith("?r=")) {
+            number_range = parseInt(location.search.slice(3,location.search.length));
+            if (!isNaN(number_range)) {
+                $("#ed").attr("value", number_range);
+            }
+        }
         let date=new Date();
         let newdate=date.toLocaleString('chinese', { hour12: false });
         let hour=parseInt(newdate.substr(newdate.indexOf(" ")+1, 2));
