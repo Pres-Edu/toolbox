@@ -1,3 +1,3 @@
 PresEdu Toolbox
 
-!()[https://img.shields.io/badge/build-passing-brightgreen]
+!()[https://img.shields.io/badge/build-passing-brightgreen.svg]
