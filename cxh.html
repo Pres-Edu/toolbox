@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
@@ -234,7 +234,7 @@
 </div>
 <div style="text-align: center;">
     <h1 class="centerize_dark" id="main_title">课堂抽学号系统</h1><br><br><br><br>
-    <a href="https://github.com/bizwofficial" target="_blank" class="follow_dark_style" id="follow_button">在GitHub上follow裨治文总统</a><br>
+    <a href="https://github.com/bizwofficial" target="_blank" class="follow_dark_style" id="follow_button"><img src="github.svg" style="width: 20px; height: 20px; vertical-align: middle"></img> 在GitHub上follow裨治文总统</a><br>
     <p class="main_dark_style" id="num" onclick="make();" title="点击数字也可以抽取">0</p><br>
     <p class="history_dark_style" id="history"> </p><br>
     <fieldset style="width: 70vw; margin: 0 auto; float: none;">
@@ -251,7 +251,7 @@
     <input type="checkbox" id="historycheck" title="如果要抽取多个学号，请勾选此选项"><span class="centerize_dark" id="history_prompt">保留历史记录</span>
     <input type="checkbox" id="repeatcheck" checked="checked"><span class="centerize_dark" id="repeat_prompt">自动去重</span><br><br>
     <hr>
-    <button class="ver_style" onclick="ver_hint()" title="这是什么？">v1.6.0b2</button>
+    <button class="ver_style" onclick="ver_hint()" title="这是什么？">v1.6.0rc1</button>
     <img src='https://travis-ci.com/bizwofficial/cxh.svg?branch=master' />
     <img src='https://gitee.com/bizwofficial/cxh/badge/star.svg?theme=dark' alt='star'></img><br><br>
     <a href="https://github.com/Pres-Edu/toolbox/blob/master/README.md" class="download_style" target="_blank">点击此处阅读使用文档</a>
@@ -400,7 +400,7 @@
     }
     function ver_hint(){
         if (confirm("绿色表示稳定版本\n黑色表示测试版本\n红色表示调试版本\n\n点击“确定”前往Releases页")) {
-            window.open("https://github.com/bizwofficial/cxh/releases");
+            window.open("https://github.com/pres-edu/toolbox/releases");
         }
     }
     function history_process() {
